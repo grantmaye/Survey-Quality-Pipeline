@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "survey-quality-pipeline"
+version = "1.0.0"
+description = "Validated survey ingestion, reproducible SQL reporting, and small-group suppression."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+surveylens = "surveylens.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["surveylens*"]
+
+[tool.setuptools.package-data]
+surveylens = ["data/*.csv"]

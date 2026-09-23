@@ -1,0 +1,29 @@
+{
+  "minimum_responses": 5,
+  "groups": [
+    {
+      "term": "2026-fall",
+      "course": "ART105",
+      "suppressed": true,
+      "responses": null,
+      "mean_rating": null,
+      "favorable_pct": null
+    },
+    {
+      "term": "2026-fall",
+      "course": "CS101",
+      "suppressed": false,
+      "responses": 6,
+      "mean_rating": 3.83,
+      "favorable_pct": 66.7
+    },
+    {
+      "term": "2026-fall",
+      "course": "ENG201",
+      "suppressed": false,
+      "responses": 5,
+      "mean_rating": 4.0,
+      "favorable_pct": 80.0
+    }
+  ]
+}
