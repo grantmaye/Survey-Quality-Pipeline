@@ -101,6 +101,22 @@ class PipelineTests(unittest.TestCase):
         self.assertNotIn("<script>", rendered)
         self.assertIn("&lt;script&gt;", rendered)
 
+    def test_malformed_csv_rolls_back_preceding_valid_record(self):
+        source = self.csv([["ok", "CS101", "2026-fall", "5", "2026-09-20T12:00:00Z"]])
+        with source.open("a") as handle:
+            handle.write('"unterminated field')
+        with self.assertRaises(csv.Error):
+            ingest(self.db, source)
+        self.assertEqual(self.db.execute("SELECT COUNT(*) FROM runs").fetchone()[0], 0)
+        self.assertEqual(self.db.execute("SELECT COUNT(*) FROM responses").fetchone()[0], 0)
+
+    def test_invalid_encoding_leaves_database_unchanged(self):
+        source = Path(self.folder.name) / "invalid.csv"
+        source.write_bytes(b"\xff\xfe")
+        with self.assertRaises(UnicodeError):
+            ingest(self.db, source)
+        self.assertEqual(self.db.execute("SELECT COUNT(*) FROM runs").fetchone()[0], 0)
+
     def test_cli_demo_writes_real_reports(self):
         dest = Path(self.folder.name) / "demo"
         result = subprocess.run([sys.executable, "-m", "surveylens", "demo", "--output", str(dest)],

@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "survey-quality-pipeline"
 version = "1.0.0"
+readme = "README.md"
 description = "Validated survey ingestion, reproducible SQL reporting, and small-group suppression."
 requires-python = ">=3.11"
 dependencies = []
@@ -17,3 +18,7 @@ include = ["surveylens*"]
 
 [tool.setuptools.package-data]
 surveylens = ["data/*.csv"]
+
+[project.urls]
+Repository = "https://github.com/grantmaye/Survey-Quality-Pipeline"
+Documentation = "https://github.com/grantmaye/Survey-Quality-Pipeline/blob/main/docs/technical-manual.md"
