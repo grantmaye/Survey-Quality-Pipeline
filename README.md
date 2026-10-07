@@ -111,3 +111,8 @@ The standard library keeps setup short and makes the underlying ETL steps visibl
 See [EXERCISES.md](EXERCISES.md) for useful extensions and walkthrough questions.
 
 References: [Python CSV](https://docs.python.org/3/library/csv.html), [Python SQLite](https://docs.python.org/3/library/sqlite3.html), [Python unittest](https://docs.python.org/3/library/unittest.html).
+
+## Learn the implementation
+
+- [Technical manual: setup through maintenance](docs/technical-manual.md)
+- [Product story, limitations, and demo](docs/product-story.md)
